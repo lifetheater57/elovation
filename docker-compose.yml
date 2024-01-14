@@ -2,7 +2,7 @@ services:
   db:
     image: postgres
     volumes:
-      - ./tmp/db:/var/lib/postgresql/data
+      - db_postgres:/var/lib/postgresql/data
     environment:
       POSTGRES_PASSWORD: password
   web:
@@ -16,3 +16,5 @@ services:
       - "4321:3000"
     depends_on:
       - db
+volumes:
+  db_postgres:
